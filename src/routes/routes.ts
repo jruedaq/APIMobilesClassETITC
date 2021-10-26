@@ -32,10 +32,10 @@ class Routes {
     }
 
     routes() {
-        this.router.get('', this.get);
-        this.router.post('', this.post);
-        this.router.put('', this.put);
-        this.router.delete('', this.delete);
+        this.router.get('/places', this.get);
+        this.router.post('/places', this.post);
+        this.router.put('/places', this.put);
+        this.router.delete('/places', this.delete);
     }
 }
 
