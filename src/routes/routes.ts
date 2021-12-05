@@ -37,6 +37,11 @@ class Routes {
         return response.json({error: false, user: user});
     }
 
+    public async login(request: Request, response: Response): Promise<any> {
+        const user = await User.findOne({email: request.body.email})
+        return response.json({error: false, user: user});
+    }
+
     public async postUser(request: Request, response: Response): Promise<any> {
         const {name, email, password} = request.body;
         const newUser = new User({name, email, password})
@@ -64,6 +69,8 @@ class Routes {
         this.router.post('/users', this.postUser);
         this.router.put('/users', this.putUser);
         this.router.delete('/users', this.deleteUser);
+
+        this.router.get('/users/login', this.login);
     }
 }
 
