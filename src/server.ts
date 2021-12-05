@@ -14,7 +14,6 @@ class Server {
     }
 
     config(): void {
-        // this.app.set("PORT", 4000);
         this.app.set("PORT", process.env.PORT || 4000);
         this.app.use(morgan('dev'));
         this.app.use(express.json());
