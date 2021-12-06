@@ -66,7 +66,7 @@ class Routes {
 
     routes() {
         this.router.get('/places', this.getPlace);
-        this.router.get('/place/id', this.getPlaceById);
+        this.router.post('/place/id', this.getPlaceById);
         this.router.post('/places', this.postPlace);
         this.router.put('/places', this.putPlace);
         this.router.delete('/places', this.deletePlace);
