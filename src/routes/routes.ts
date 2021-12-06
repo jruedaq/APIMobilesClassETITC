@@ -15,6 +15,11 @@ class Routes {
         return response.json({error: false, places: place});
     }
 
+    public async getPlaceById(request: Request, response: Response): Promise<any> {
+        const place = await Place.findById(request.body.id);
+        return response.json({error: false, places: place});
+    }
+
     public async postPlace(request: Request, response: Response): Promise<any> {
         const {name, desc, long, lat, imageUrl} = request.body;
         const newPlace = new Place({name, desc, long, lat, imageUrl})
@@ -61,6 +66,7 @@ class Routes {
 
     routes() {
         this.router.get('/places', this.getPlace);
+        this.router.get('/place/id', this.getPlaceById);
         this.router.post('/places', this.postPlace);
         this.router.put('/places', this.putPlace);
         this.router.delete('/places', this.deletePlace);
