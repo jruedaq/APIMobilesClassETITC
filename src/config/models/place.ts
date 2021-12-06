@@ -5,6 +5,7 @@ const placeSchema = new Schema({
     desc: {type: String, required: true},
     long: {type: String, required: true},
     lat: {type: String, required: true},
+    imageUrl: {type: String, required: true},
 })
 
 export default model("place", placeSchema)

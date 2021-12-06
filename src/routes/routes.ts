@@ -16,8 +16,8 @@ class Routes {
     }
 
     public async postPlace(request: Request, response: Response): Promise<any> {
-        const {name, desc, long, lat} = request.body;
-        const newPlace = new Place({name, desc, long, lat})
+        const {name, desc, long, lat, imageUrl} = request.body;
+        const newPlace = new Place({name, desc, long, lat, imageUrl})
         const place = await newPlace.save();
         return response.json({error: false, message: place})
     }
@@ -70,7 +70,7 @@ class Routes {
         this.router.put('/users', this.putUser);
         this.router.delete('/users', this.deleteUser);
 
-        this.router.get('/users/login', this.login);
+        this.router.post('/users/login', this.login);
     }
 }
 
